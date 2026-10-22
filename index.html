@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Kamiti – Data scientist</title>
+<meta name="description" content="David Kamiti is a data scientist in Nairobi who builds machine learning models, tests them honestly and ships them as tools people can use.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="David Kamiti – Data scientist">
+<meta property="og:description" content="Machine learning projects with live demos, code and honest evaluation.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231F4FD8'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='white'%3EDK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#ffffff; --alt:#f1f4f8; --ink:#14213d; --muted:#4a5873; --line:#d5dce6;
+    --accent:#1f4fd8; --on-accent:#ffffff; --bar:#1f4fd8; --bar2:#b9c6e6;
+    --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+    --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  :root:not([data-theme="light"]) { }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#0e1621; --alt:#152131; --ink:#e8eef7; --muted:#a3b1c6; --line:#2a3a52;
+      --accent:#7aa2ff; --on-accent:#0e1621; --bar:#7aa2ff; --bar2:#3a4c6b;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#0e1621; --alt:#152131; --ink:#e8eef7; --muted:#a3b1c6; --line:#2a3a52;
+    --accent:#7aa2ff; --on-accent:#0e1621; --bar:#7aa2ff; --bar2:#3a4c6b;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+  body { margin:0; background:var(--bg); color:var(--ink); font:400 17px/1.65 var(--sans);
+         padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
+  a { color:var(--accent); text-underline-offset:3px; }
+  a:hover { text-decoration-thickness:2px; }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:3px; border-radius:3px; }
+  .wrap { max-width:940px; margin:0 auto; padding:0 24px; }
+  h1,h2,h3 { font-family:var(--serif); font-weight:600; line-height:1.15; margin:0; }
+  p { margin:0 0 1em; max-width:64ch; }
+
+  header.top { border-bottom:1px solid var(--line); }
+  header.top .wrap { display:flex; justify-content:space-between; align-items:center; gap:16px; padding-top:16px; padding-bottom:16px; flex-wrap:wrap; }
+  header.top .name { font-family:var(--serif); font-weight:600; color:var(--ink); text-decoration:none; }
+  nav a { color:var(--muted); text-decoration:none; margin-left:20px; font-weight:500; }
+  nav a:hover { color:var(--accent); text-decoration:underline; }
+
+  .hero { padding:72px 0 64px; }
+  .hero h1 { font-size:clamp(2.6rem,7vw,4.4rem); letter-spacing:-0.01em; margin-bottom:20px; }
+  .hero .lede { font-family:var(--serif); font-size:clamp(1.25rem,2.6vw,1.6rem); line-height:1.4; max-width:30em; margin-bottom:12px; font-weight:500; }
+  .hero .where { color:var(--muted); margin-bottom:28px; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px 24px; align-items:center; }
+  .btn { display:inline-block; background:var(--accent); color:var(--on-accent); padding:12px 22px; border-radius:6px; font-weight:600; text-decoration:none; }
+  .btn:hover { filter:brightness(1.1); }
+
+  section { padding:56px 0; }
+  section.alt { background:var(--alt); }
+  h2 { font-size:clamp(1.7rem,4vw,2.2rem); margin-bottom:8px; }
+  .sub { color:var(--muted); margin-bottom:32px; }
+
+  .project { display:grid; gap:24px 40px; padding:36px 0; border-top:1px solid var(--line); }
+  .project:last-child { padding-bottom:0; }
+  @media (min-width:820px) { .project { grid-template-columns:1fr 340px; } }
+  .project h3 { font-size:clamp(1.3rem,3vw,1.65rem); margin-bottom:12px; }
+  .project .name { color:var(--muted); font-weight:500; margin-bottom:4px; }
+  .stack { color:var(--muted); font-size:15px; margin-bottom:12px; }
+  .links { display:flex; gap:20px; font-weight:600; }
+
+  figure.chart { margin:0; align-self:start; }
+  .row { display:grid; grid-template-columns:132px 1fr 44px; gap:10px; align-items:center; font-size:14px; margin-bottom:10px; }
+  .row .track { height:14px; background:var(--alt); border-radius:2px; overflow:hidden; }
+  section.alt .row .track { background:var(--bg); }
+  .row .track i { display:block; height:100%; background:var(--bar); }
+  .row .track i.b { background:var(--bar2); }
+  .row .val { text-align:right; font-weight:600; font-variant-numeric:tabular-nums; }
+  figcaption { color:var(--muted); font-size:13px; margin-top:6px; line-height:1.4; }
+
+  dl.skills { display:grid; gap:14px 28px; margin:0; }
+  @media (min-width:700px) { dl.skills { grid-template-columns:200px 1fr; } }
+  dl.skills dt { font-weight:600; }
+  dl.skills dd { margin:0; color:var(--muted); }
+  .two { display:grid; gap:40px; }
+  @media (min-width:820px) { .two { grid-template-columns:1fr 1fr; } }
+  .entry { margin-bottom:20px; }
+  .entry strong { display:block; }
+  .entry span { color:var(--muted); }
+
+  .contact a.big { font-family:var(--serif); font-size:clamp(1.3rem,3.4vw,1.8rem); font-weight:600; }
+  .contact ul { list-style:none; padding:0; margin:20px 0 0; display:flex; gap:24px; flex-wrap:wrap; font-weight:600; }
+  footer { padding:28px 0 40px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="#top">David Kamiti</a>
+    <nav aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="David_Kamiti_Resume.pdf">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <h1>David Kamiti</h1>
+    <p class="lede">I build machine learning models, test them honestly, and ship them as tools people can use.</p>
+    <p class="where">Data scientist in Nairobi, Kenya. Open to junior data science and machine learning roles.</p>
+    <div class="actions">
+      <a class="btn" href="David_Kamiti_Resume.pdf" download>Download resume</a>
+      <a href="#projects">See my projects</a>
+      <a href="https://github.com/Davidkamiti">GitHub</a>
+      <a href="https://www.linkedin.com/in/david-kamiti-71b109278">LinkedIn</a>
+    </div>
+  </div>
+
+  <section id="projects" class="alt">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="sub">Each project states what I found, how I tested it, and where it falls short. The write-ups are in the code links.</p>
+
+      <article class="project">
+        <div>
+          <p class="name">Credit Risk Prediction</p>
+          <h3>A Random Forest that flags risky loans with a ROC-AUC of 0.91, deployed as a web app.</h3>
+          <p>At a 0.6 cut-off the model is right 81% of the time when it flags a likely defaulter and catches 71% of real defaulters. I balanced the classes with SMOTE, packaged the scaler and model together, and wrote up the weaknesses I found in my own evaluation.</p>
+          <p class="stack">Python, scikit-learn, imbalanced-learn, Streamlit</p>
+          <div class="links">
+            <a href="https://davidkamiti-credit-risk-prediction.streamlit.app">Try the live demo</a>
+            <a href="https://github.com/Davidkamiti/credit-risk-prediction">Read the code</a>
+          </div>
+        </div>
+        <figure class="chart" role="img" aria-label="Bar chart for defaulters at a 0.6 threshold: precision 81 percent, recall 71 percent.">
+          <div class="row"><span>Precision</span><span class="track"><i style="width:81%"></i></span><span class="val">81%</span></div>
+          <div class="row"><span>Recall</span><span class="track"><i style="width:71%"></i></span><span class="val">71%</span></div>
+          <figcaption>Defaulters in the held-out test set, 0.6 threshold</figcaption>
+        </figure>
+      </article>
+
+      <article class="project">
+        <div>
+          <p class="name">Telecom Customer Churn</p>
+          <h3>Customers on an international plan leave four times as often, and trouble with support predicts who goes next.</h3>
+          <p>I compared six model types and tuned XGBoost for F1 on the churn class, not accuracy. On held-out data it identifies 95 of 121 churners at 84% precision. The threshold was chosen on training data only.</p>
+          <p class="stack">Python, XGBoost, scikit-learn, cross-validation</p>
+          <div class="links">
+            <a href="https://github.com/Davidkamiti/phase-3-project">Read the code</a>
+          </div>
+        </div>
+        <figure class="chart" role="img" aria-label="Churn rates: 42 percent with an international plan versus 11 percent without; 52 percent after four or more service calls versus 11 percent with fewer.">
+          <div class="row"><span>International plan</span><span class="track"><i style="width:70.7%"></i></span><span class="val">42%</span></div>
+          <div class="row"><span>No plan</span><span class="track"><i class="b" style="width:19.2%"></i></span><span class="val">11%</span></div>
+          <div class="row"><span>4+ service calls</span><span class="track"><i style="width:86.2%"></i></span><span class="val">52%</span></div>
+          <div class="row"><span>0–3 calls</span><span class="track"><i class="b" style="width:18.8%"></i></span><span class="val">11%</span></div>
+          <figcaption>Share of customers who churned (axis 0–60%)</figcaption>
+        </figure>
+      </article>
+
+      <article class="project">
+        <div>
+          <p class="name">Hacker News Hiring Posts</p>
+          <h3>Employers name SQL in only 4% of posts, and LLM mentions stayed flat across a year.</h3>
+          <p>I collected 3,691 job posts through an API, extracted about 40 skills with pattern matching, and tracked demand month by month. I checked my matcher against an independent count and fixed a flawed rule that was flagging company names.</p>
+          <p class="stack">Python, pandas, text mining, matplotlib</p>
+          <div class="links">
+            <a href="https://github.com/Davidkamiti/data-job-skills-nlp">Read the code</a>
+          </div>
+        </div>
+        <figure class="chart" role="img" aria-label="Share of 3,691 posts naming each skill: Python 25 percent, React 24 percent, LLM 13 percent, SQL 4 percent.">
+          <div class="row"><span>Python</span><span class="track"><i style="width:83.7%"></i></span><span class="val">25%</span></div>
+          <div class="row"><span>React</span><span class="track"><i style="width:78.3%"></i></span><span class="val">24%</span></div>
+          <div class="row"><span>LLM</span><span class="track"><i style="width:44.7%"></i></span><span class="val">13%</span></div>
+          <div class="row"><span>SQL</span><span class="track"><i style="width:13.7%"></i></span><span class="val">4%</span></div>
+          <figcaption>Share of 3,691 posts naming the skill (axis 0–30%)</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <p class="sub">Mathematics and statistics first, then machine learning.</p>
+      <p>I studied mathematics and statistics at the University of Eldoret and data science at Moringa School, then worked as an intern at MymoviesAfrica building analytics dashboards. Since then I have focused on building models end to end: cleaning the data, testing several approaches, choosing the measure that fits the problem, and shipping the result.</p>
+      <p>I care about reporting what a model gets wrong as well as what it gets right, so every project here lists its limitations.</p>
+
+      <h3 style="font-size:1.3rem;margin:36px 0 16px">Skills</h3>
+      <dl class="skills">
+        <dt>Languages and libraries</dt><dd>Python, SQL, pandas, NumPy, scikit-learn, XGBoost, imbalanced-learn, matplotlib</dd>
+        <dt>Machine learning</dt><dd>Classification, feature engineering, hyperparameter tuning, cross-validation, model evaluation, imbalanced data, model deployment, convolutional neural networks</dd>
+        <dt>Data analysis</dt><dd>Statistical analysis, data cleaning and integration, data visualization, dashboards, text mining</dd>
+        <dt>Tools</dt><dd>Streamlit, Git and GitHub, Jupyter, APIs</dd>
+      </dl>
+
+      <div class="two" style="margin-top:40px">
+        <div>
+          <h3 style="font-size:1.3rem;margin-bottom:16px">Experience</h3>
+          <div class="entry"><strong>Intern, MymoviesAfrica</strong><span>Nairobi, April 2023. Built content and market analytics dashboards, and integrated data from several sources including social media.</span></div>
+        </div>
+        <div>
+          <h3 style="font-size:1.3rem;margin-bottom:16px">Education</h3>
+          <div class="entry"><strong>BSc Mathematics and Statistics</strong><span>University of Eldoret</span></div>
+          <div class="entry"><strong>Data Science</strong><span>Moringa School, Nairobi</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p class="sub">I’m looking for a junior data science or machine learning role. The quickest way to reach me is email.</p>
+      <a class="big" href="mailto:kamitidavid479@gmail.com">kamitidavid479@gmail.com</a>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/david-kamiti-71b109278">LinkedIn</a></li>
+        <li><a href="https://github.com/Davidkamiti">GitHub</a></li>
+        <li><a href="David_Kamiti_Resume.pdf" download>Resume (PDF)</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 David Kamiti</div>
+</footer>
+</body>
+</html>
